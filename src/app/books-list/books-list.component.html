@@ -1,0 +1,33 @@
+<h2>{{title}}</h2>
+<button class="btn btn-primary my-2" (click)="changeAction('add')">Ajouter un livre</button>
+@if(action === "add"){
+<app-book-add [lastId] = "books[books.length-1].id" (bookCreated)="addBook($event)"></app-book-add>
+}
+@if (edit === 'edit') {
+  <app-book-edit [editedBook] = books[i] (bookEdited)="editBook($event)"></app-book-edit>
+}
+<table class="table">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Auteur</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Editer</th>
+        <th scope="col">Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--DIRECTIVE ngFor (avant ka version 17) ou @for (a partie de la version 17)-->
+      @for (book of books; track $index) {
+        <tr>
+          <th scope="row">{{book.id}}</th>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.price}}</td>
+          <td><button class="btn btn-primary" (click)="changeEdit('edit')" (click)="getIndex($index)">Editer</button></td>
+          <td><button class="btn btn-danger" (click)="delBook($index)">Supprimer</button></td>
+        </tr>
+      }
+    </tbody>
+</table>
