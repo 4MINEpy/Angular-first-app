@@ -16,7 +16,8 @@ export class BooksListComponent {
     books =   [
       new Book(1,"The Night Circus","Erin Morgenstern",12.99),
       new Book(2,"Educated","Tara Westover",14.99),
-      new Book(3,"Dune","Frank Herbert",10.99)
+      new Book(3,"Dune","Frank Herbert",10.99),
+      new Book(3,"Tree","Amin Medfai",99.99)
     ]    
     action = ""
     changeAction(action : string){
