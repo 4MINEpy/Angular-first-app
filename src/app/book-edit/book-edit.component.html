@@ -1,18 +1,18 @@
-<h2>Editer un livre : </h2>
-<!--Solution simplifier non recommandrée-->
+<h2>Editer le livre {{editedBook.title}} : </h2>
+<!--Solution simplifier non recommandée-->
 <form id="addForm">
     <div class="mb-3">
       <label for="title" class="form-label">Titre</label>
-      <input type="text" class="form-control" id="title" #title value={{editedBook.title}}/>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="editedBook!.title"/>
     </div>
     <div class="mb-3">
       <label for="author" class="form-label">Auteur</label>
-      <input type="text" class="form-control" id="author" #author value={{editedBook.author}}/>
+      <input type="text" class="form-control" id="author" name="author" [(ngModel)]="editedBook!.author"/>
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Prix</label>
-      <input type="number" class="form-control" id="price" #price value={{editedBook.price}} />
+      <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editedBook!.price" />
     </div>
-    <button type="button"class="btn btn-danger mb-3" (click)="editBook(title.value,author.value,+price.value)">Confirm</button>
+    <button type="button"class="btn btn-danger mb-3" (click)="editBook()">Confirm</button>
     </form>
 

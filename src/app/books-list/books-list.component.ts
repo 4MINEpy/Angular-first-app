@@ -17,7 +17,7 @@ export class BooksListComponent {
       new Book(1,"The Night Circus","Erin Morgenstern",12.99),
       new Book(2,"Educated","Tara Westover",14.99),
       new Book(3,"Dune","Frank Herbert",10.99),
-      new Book(3,"Tree","Amin Medfai",99.99)
+      new Book(4,"Tree","Amin Medfai",99.99)
     ]    
     action = ""
     changeAction(action : string){
@@ -35,10 +35,16 @@ export class BooksListComponent {
       this.i = i;
     }
     editBook(book : Book){
-      this.books[this.i] = book;
+      //this.books[this.i] = book;
+      //avec function map
+      this.books = this.books.map(currentBook => currentBook.id === book.id ? book : currentBook);
       this.changeEdit("");
     } 
-    delBook(i : number){
-      this.books.splice(i,1);
+    delBook(id : number){
+      //this.books.splice(i,1);
+      //avec filter
+      if(confirm("Are you sure you want to delete this book?")){
+        this.books = this.books.filter(currentBook => currentBook.id != id)
+      }
     }
 }

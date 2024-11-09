@@ -6,7 +6,7 @@
 @if (edit === 'edit') {
   <app-book-edit [editedBook] = books[i] (bookEdited)="editBook($event)"></app-book-edit>
 }
-<table class="table">
+<table class="table table-striped">
     <thead>
       <tr class="table-dark">
         <th scope="col">#</th>
@@ -26,7 +26,7 @@
           <td>{{book.author}}</td>
           <td>{{book.price}}</td>
           <td><button class="btn btn-primary" (click)="changeEdit('edit')" (click)="getIndex($index)">Editer</button></td>
-          <td><button class="btn btn-danger" (click)="delBook($index)">Supprimer</button></td>
+          <td><button class="btn btn-danger" (click)="delBook(book.id)">Supprimer</button></td>
         </tr>
       }
     </tbody>
